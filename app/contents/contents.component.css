@@ -1,0 +1,138 @@
+.filterbar {
+  color: rgba(0,191,255,1);
+  top:20%;
+  height: 50%;
+  font-size: 3vmin;
+  font-weight: 500;
+  align-items: baseline;
+  justify-content:center;
+  display: flex;
+  margin-top:10vh;
+  margin-bottom: 3vh;
+  padding-top: 10vh;
+  text-align: center;
+  overflow-Y: auto;
+  }
+
+  .newsShow{
+    position: fixed;
+    top:50%;
+    left: 0;
+    width: 100%;
+    height: 45%;
+    display: flex;
+    color:yellow;
+    flex-direction: column;
+    overflow-Y: scroll;
+  }
+
+  .newsTop{
+    display:flex;
+    height:20%;
+    margin:0;
+    width: 100%;
+    color: #fff;
+    font-size: 5vmin;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex:none;
+    background-color:rgba(0,191,255,1);
+    z-index: 5;
+  }
+
+  .newsItem{
+    display:flex;
+    height:20%;
+    margin:0;
+    width: 100%;
+    background-color: rgba(0,191,255,1);
+    flex:none;
+    padding:0;
+    z-index: 5;
+  }
+
+  .newsImg{
+    width: 30%;
+    height: 100%;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .newsTitle{
+    width: 50%;
+    height: 100%;
+    top:0;
+    font-size:3vmin;
+    font-weight: bold;
+    display:flex;
+    padding:0 2vmin;
+    color:#fff;
+    text-decoration: none;
+  }
+
+  .newsTitle a:link{
+    color:#fff;
+    text-decoration: none;
+  }
+
+  .newsTime{
+    width: 20%;
+    height: 100%;
+    bottom:0;
+    display: inline;
+    font-size:1vmin;
+    right: 0;
+  }
+
+
+  #refreshtime{
+    position: fixed;
+    top:50%;
+    height: 5%;
+    left:0;
+    width: 100%;
+    display:flex;
+    font-size: 3vmin;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex:none;
+    color:rgba(0,191,255,1);
+  }
+
+  #loadmorelucky{
+    position: fixed;
+    bottom:0;
+    left:0;
+    width: 100%;
+    display:flex;
+    height:5%;
+    font-size: 3vmin;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex:none;
+    color:rgba(0,191,255,1);
+  }
+
+  #loadmoremsg{
+    position: fixed;
+    bottom:5%;
+    left:0;
+    width: 100%;
+    display:flex;
+    height:5%;
+    font-size: 3vmin;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex:none;
+    color:yellow;
+    background: rgba(6, 24, 31, 0.2);
+    display: none;
+    z-index: 5;
+  }

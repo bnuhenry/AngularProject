@@ -1,0 +1,254 @@
+body{
+  background-color: rgba(0,191,255,1);
+}
+
+.button{
+  background: rgba(6, 24, 31, 0.2);
+  outline:0;
+  height:25vmin;
+  width:50vmin;
+  border:1px solid white;
+  color:yellow;
+  font-size:5vmin;
+  text-decoration:none;
+  border-radius: 5%;
+  letter-spacing:0.3vmin;
+}
+
+#notice{
+width: 100%;
+height: 100%;
+position: fixed;
+padding-bottom: 20%;
+top:0;
+left:0;
+right:0;
+bottom:0;
+color:white;
+font-size:5vmin;
+display: flex;
+flex-direction: column;
+text-align: center;
+justify-content:center;
+align-items: center;
+background: rgba(6, 24, 31, 0.2);
+z-index:50;
+animation:noticeFade 1s 3s linear 1;
+animation-fill-mode: forwards;
+}
+
+.filterbar {
+color: rgba(0,191,255,1);
+top:20%;
+height: 50%;
+font-size: 3vmin;
+font-weight: 500;
+align-items: baseline;
+justify-content:center;
+display: flex;
+margin-top:10vh;
+margin-bottom: 3vh;
+padding-top: 10vh;
+}
+
+.mention{
+  height:20%;
+  display: flex;
+  justify-content: center;
+} 
+
+.mention div{
+  height:50%;
+  font-size: 2.5vmin;
+  padding:1vmin;
+  display:flex;
+  border:1px solid lightblue;
+  border-radius:3vmin;
+  justify-content: center;
+  align-items: center;
+  color:rgb(0, 255, 0);
+  z-index: 30;
+}
+
+
+.filterbar span {
+font-size: 15vmin;
+}
+
+@keyframes noticeFade{
+0%{
+  opacity: 0;
+  z-index: -50;
+}
+100%{
+  opacity: 0;
+  z-index:-50;
+}
+}
+
+@keyframes equiptopScale{
+0%{
+  transform:scaleY(1);
+}
+100%{
+  transform:scaleY(0.8); 
+}
+}
+
+@keyframes equipdataScale{
+0%{
+  transform:scaleY(1);
+}
+100%{
+  transform:scaleY(1.2); 
+}
+}
+
+@keyframes histogram{
+  0%{
+    height: 100%;
+  }
+  100%{
+    height: 0%; 
+  }
+}
+
+.equipdata {
+position: fixed;
+width:100%;
+top:50%;
+left:0;
+right:0;
+height:50%;
+overflow-y: scroll;
+transform-origin: center 0;
+}
+
+#equipdatabar {
+width:100%;
+color: white;
+transition:1s;
+background-color: rgba(0,191,255,1);
+}
+
+
+#equipdatabar table {
+width:100%;
+border-collapse: collapse;
+}
+
+#equipdatabar table tr{
+display: flex;
+align-items: center;
+}
+
+#equipdatabar .imptr{
+  padding:2vh;
+  display: inline;
+  font-size: 5vmin;
+  border-bottom: 1px solid white;
+}
+
+#equipdatabar .imptr .imptrfont{
+  padding-left:1rem;
+}
+
+#equipdatabar #histogramtoptr{
+  font-size: 2vmin;
+  padding-top: 1rem;
+}
+
+#equipdatabar #histogramtoptr h1{
+  font-size: 4vmin;
+}
+
+#equipdatabar .histogramtop{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  }
+
+  #equipdatabar .histogramtop div{
+    display: flex;
+    width: 33%;
+    height: 100%;
+    padding:1vh;
+    font-size:2vmin;
+    justify-content: center;
+    }
+
+    #equipdatabar .histogramtop #div1{
+      border:0.5px solid white;
+      border-radius: 40% 0 0 40%;
+    }
+
+    #equipdatabar .histogramtop #div1:hover{
+      background-color:lightblue;
+    }
+
+    #equipdatabar .histogramtop #div2{
+        border:0.5px solid white;
+    }
+
+    #equipdatabar .histogramtop #div2:hover{
+      background-color:lightblue;
+    }
+
+    #equipdatabar .histogramtop #div3{
+      border:0.5px solid white;
+      border-radius: 0 40% 40% 0;
+    }
+
+    #equipdatabar .histogramtop #div3:hover{
+      background-color:lightblue;
+    }
+
+#equipdatabar .histogramtr{
+  background-size: 11px 11px;
+  background:linear-gradient(to top,white 10px,rgba(0,191,255,0.5) 11px),linear-gradient(to left, white 10px,rgba(0,191,255,0.5) 11px);
+}
+
+#equipdatabar .histogramtd{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; 
+  height: 25vh;
+}
+
+#equipdatabar .histogram{
+bottom:0;
+width: 50%;
+background-image: linear-gradient(to top,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 60%, rgba(255,255,255,0.2) 61%,rgba(255,255,255,0.2) 100%);
+}
+
+#equipdatabar .histogramfloat{
+  position:absolute;
+  top:0;
+  width: 100%;
+  background-color:rgba(0,191,255,1);
+  animation:histogram 10s ease-out 1;
+  animation-fill-mode: forwards;
+  }
+
+#equipdatabar #histogramdatetd{
+  border-bottom: 1px solid white;
+  font-size: 2vmin;
+  padding-bottom: 1rem;
+}
+
+#equipdatabar .msgtd{
+  align-items:left;
+  font-size: 1.5vmin;
+  display: inline;
+  width:90%;
+  border-bottom: 1px solid white;
+  padding:2vh;
+}
+
+#equipdatabar .msgtd .time{
+  font-size: 2vmin;
+  font-weight: bold;
+}

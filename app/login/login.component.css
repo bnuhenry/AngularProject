@@ -1,0 +1,153 @@
+.loginform{
+    position: fixed;
+    top:20%;
+    width: 80%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #eeeeee;
+    border-radius: 1vmax;
+    transform: translateX(12%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+    z-index: 5;
+}
+
+    .loginform div{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loginform div input{
+        width: 60%;
+        height: 3vmax;
+        background-color: #ffffff;
+        border-radius: 1vmax;
+        font-size: 2vmax;
+        outline: none;
+        border:0;
+        }
+
+        .loginform div input:hover{
+            outline: 1px solid red;
+            }
+
+    .loginformtop{
+        height: 20%;
+        top:0;
+        color:#666666;
+        font-size: 3vmax;
+        font-weight: 600;
+    }
+
+    .loginformuser{
+        height: 20%;
+        font-size: 3vmax;
+        font-weight: lighter;
+        color:#666666;
+    }
+
+    .loginformpass{
+        height: 20%;
+        font-size: 3vmax;
+        font-weight: lighter;
+        color:#666666;
+    }
+
+    .loginformbutton{
+        width: 80%!important;
+        height: 15%;
+        font-size: 2vmax;
+        display: flex;
+        flex-direction: row;
+    }
+
+        .loginformsubmit{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loginformsubmit button{
+            width: 60%;
+            height: 80%;
+            border-radius: 1vmax;
+            background-color: #666666;
+            color:#ffffff;
+            border:none;
+            outline: none;
+        }
+
+        .loginformsubmit button:active{
+            transform: scale(0.9);
+        }
+
+    .loginformmsgtext{
+        height: 15%;
+        font-size: 2vmax;
+        display: flex;
+        color:blue;
+    }
+
+    .loginformregtext{
+        height: 10%;
+        font-size: 2vmax;
+        display: flex;
+        color:blue;
+        justify-content: flex-end!important;
+        align-items: center;
+    }
+
+    .loginmsg{
+        color:red;
+    }
+
+.regform{
+    position: fixed;
+    top:20%;
+    width: 80%;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #eeeeee;
+    border-radius: 1vmax;
+    transform: translateX(12%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+    z-index: 10;
+}
+
+    .regform div input{
+        width: 60%;
+        height: 3vmax;
+        background-color: #ffffff;
+        border-radius: 1vmax;
+        font-size: 2vmax;
+        outline: none;
+        border:0;
+        }
+
+        .regform div input:hover{
+            outline: 1px solid red;
+            }
+
+/* .wavebox{
+    position: fixed;
+    top:10%;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background: #1976D2;
+    color:#fff;
+} */
+
+/* #wavebar{
+    background-image: linear-gradient(white,#1976D2);
+    height:20%;
+  } */

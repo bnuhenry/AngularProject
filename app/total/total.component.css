@@ -1,0 +1,407 @@
+.billtoolbar {
+    position: fixed;
+    width: 100%;
+    height: 5%;
+    top:0;
+    left:0;
+    right:0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #ffffff;
+    font-weight: 600;
+    /* background-color: rgb(0, 185, 125); */
+    background-color: rgb(96, 176, 119);
+    z-index:30;
+  }
+  
+  .billtoolbar .icon1{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .billtoolbar .icon1 .img{
+    width: 3vh;
+    height: 3vh;
+    margin-left:3vw;
+    background: url("../../assets/images/icon/close-e6e6e6.png") no-repeat;
+    background-size: 100% 100%;
+  }
+
+.total{
+    width: 100%;
+    height: 33%;
+    top:5%;
+    left:0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    color:#e6e6e6;
+    /* background-color: rgb(0, 185, 125); */
+    background-color: rgb(96, 176, 119);
+}
+
+    .yearormonth{
+        width: 100%;
+        top:0;
+        height: 15%;
+        display: flex;
+        justify-content: center;
+    }
+
+        .yearormonth .choose{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+            .yearormonth .choose div{
+                width:30%;
+                height: 95%;
+                font-size: 2vmax;
+                font-weight: 500;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .yearormonth .choose .yearoption.tabon{
+                color: #ffffff;
+                border-bottom: 3px #ffffff solid;
+            }
+
+            .yearormonth .choose .monthoption.tabon{
+                color: #ffffff;
+                border-bottom: 3px #ffffff solid;
+            }
+
+    .screenbar{
+        height: 20%;
+        width: 100%;
+        margin-top:1vh;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+    
+        .selectdate{
+            height:50%;
+            outline:none;
+            width:40%;
+            margin:0;
+            left: 0;
+            padding: 0 5vmin;
+            border-radius: 5vmin;
+            display: flex;
+            border: 0;
+            font-size:2vmin;
+            font-weight: 600;
+            color:#e6e6e6;
+            /* background-color: rgb(96, 176, 119); */
+            background-color: rgb(96, 176, 119);
+        }
+
+        .selectdate option{
+            outline:none;
+        }
+        
+        .totaloption{
+            height:100%;
+            width: 60%;
+            margin:0;
+            right: 0;
+            display: flex;
+            justify-content:flex-end;
+            align-items: center;
+        }
+
+        .totaloption div{
+            height:100%;
+            width: 25%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .totaloption div div{
+            height:50%;
+            width: 80%;
+            display: flex;
+            color: #fff;
+            border-radius: 2vmax;
+            font-size: 1vmax;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .totaloption div div.tabon{
+            border: 1px #ffffff solid;
+            color:#ffffff;
+        }
+
+    .totalnumber{
+        height: 60%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: flex-start;
+    }
+
+    .totalnumber .record{
+        width: 50%;
+        height: 30%;
+        display:flex;
+        font-size: 2vmax;
+        padding-left: 5vmin;
+        align-items: center;
+    }
+
+    .totalnumber .amount{
+        width: 50%;
+        height: 70%;
+        display:flex;
+        align-items: flex-start;
+        font-size: 5vmax;
+        font-weight: 600;
+        padding-left: 5vmin;
+        color: #ffffff;
+    }
+
+    .datashow{
+        width: 100%;
+        height: 65%;
+        position: fixed;
+        top:35%;
+        border-radius: 2vmax 2vmax 0 0;
+        background-color: #ffffff;
+        overflow: hidden;
+    }
+
+        .datashowtop{
+            position: absolute;
+            width: 100%;
+            height: 20%;
+            top:0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .datashowtoplable{
+                width: 95%;
+                height: 100%;
+                margin: 1vmax;
+                display: flex;
+                flex-direction: row;
+                border-radius: 2vmax;
+                background-color: rgb(247,247,247);
+                color: #7B7B7B;
+                font-size: 2vmax;
+                font-weight: 500;
+            }
+
+            .datashowtoplableleft{
+                width: 10%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .datashowtoplableleftimg{
+                width:3vmax;
+                height: 3vmax;
+                display: flex;
+                border-radius: 50%;
+                /* background-color: #00B97D; */
+                justify-content: center;
+                align-items: center;
+                background:url("../../assets/images/icon/statementprocess-62B27A.png") no-repeat center;
+                background-size:3vmax;
+                overflow: hidden;
+            }
+
+            .datashowtoplablemiddle{
+                width: 80%;
+                height: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .datashowtoplableright{
+                width: 10%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .datashowtoplablerightimg{
+                width:3vmax;
+                height: 3vmax;
+                display: flex;
+                border-radius: 50%;
+                /* background-color: #00B97D; */
+                justify-content: center;
+                align-items: center;
+                background:url("../../assets/images/icon/arrow-right-bbbbbb.png") no-repeat center;
+                background-size:3vmax;
+                overflow: hidden;
+            }
+
+
+        .datashowtitle{
+            width: 100%;
+            height: 10%;
+            position: absolute;
+            top:20%;
+            font-size: 2vmax;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            padding-left:2vmax;
+        }
+
+            .datashowtitleimg{
+                width: 16vmax;
+                height: 100%;
+                position: relative;
+                font-size: 2vmax;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                padding-left:2vmax;
+                background:url("../../assets/images/icon/prompt-afafaf.png") no-repeat right;
+                background-size:2vmax;
+            }
+
+        .datashowdetail{
+            width: 100%;
+            height: 70%;
+            position: relative;
+            top:30%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+            .dealdetail{
+                position: relative;
+                height: 5vh;
+                width: 100%;
+                left: 0;
+                margin: 2vh auto;
+                display: flex;
+                align-items: center;
+            }
+
+                .dealdetail div{
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    font-size: 2vmax;
+                    flex: none;
+                }
+
+                .detailrank{
+                    width: 10%;
+                    justify-content: center;
+                    font-weight: 500;
+                }
+
+                .detailimg{
+                    height: 5vh;
+                    width: 5vh;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    justify-content: center;
+                }
+
+                    .detailimg img{
+                        height: 100%;
+                    }
+
+                .detailyearimg{
+                    height: 3vh;
+                    width: 3vh;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    padding-left: 3vmax;
+                    justify-content: center;
+                }
+
+                    .detailyearimg img{
+                        height: 60%;
+                    }
+
+                .detailname{
+                    width: 45%;
+                    padding-left: 2vmax;
+                    justify-content: flex-start;
+                    font-weight: 500;
+                }
+
+                .detailtitle{
+                    width: 20%;
+                    padding-left: 1vmax;
+                    justify-content: flex-start;
+                    font-weight: 500;
+                }
+
+                .detailhistogram{
+                    width: 30%;
+                    height: 20%!important;
+                    border-radius: 5px;
+                    display: flex;
+                    justify-content: flex-start;
+                    background-color: #E5E5E5;
+                    overflow: hidden;
+                }
+
+                    .detailhistogram div{
+                        width: 50%;
+                        height: 100%;
+                        display: flex;
+                        border-radius: 5px;
+                        background-color: #69A2F8;
+                    }
+
+                .detailamount{
+                    width: 20%;
+                    font-weight: 600;
+                    justify-content: flex-start;
+                }
+
+                .arrowimg{
+                    position: absolute;
+                    width:3vmax;
+                    height: 3vmax;
+                    right: 3vmin;
+                    justify-content: center;
+                    background:url("../../assets/images/icon/arrow-right-bbbbbb.png") no-repeat center;
+                    background-size:2vmax;
+                }
+
+#nodatashow{
+    position: fixed;
+    top:70%;
+    left: 50%;
+    width: 50%;
+    height: 5%;
+    display:flex;
+    font-size: 2vmax;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    transform: translateX(-50%);
+    color:#bbbbbb;
+}

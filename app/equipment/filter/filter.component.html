@@ -1,0 +1,254 @@
+<div class = "equiptoolbar">
+    <div class="icon1" routerLink="/equipment">
+    </div>
+    <div class="name">
+        <span><h1>净水器</h1></span><span [style]="toolbarSubname">
+            自来水水质131 mg/L
+        </span>
+    </div>
+    <div class="icon2">
+    </div>
+</div>
+
+<div class = "equipmenttop" [style]="topScaleY">
+    <div class = "filterbar" [style]="filterScaleX">
+        <span style="color:lightblue">
+            0
+        </span>
+        <span>
+            67
+        </span>mg/L
+    </div>
+
+    <div class="mention" [style]="mentionbarShow">
+        <div>
+            PP滤芯寿命到期
+        </div>
+    </div>
+
+    <div id="wavebar">
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+        <div id="div5"></div>
+        <div id="div6"></div>
+        <div id="div7"></div>
+        <div id="div8"></div>
+        <div id="div9"></div>
+        <div id="div10"></div>
+        <div id="div11"></div>
+        <div id="div12"></div>
+        <div id="div13"></div>
+        <div id="div14"></div>
+        <div id="div15"></div>
+    </div>
+</div>
+
+<!-- <div class="equipdata" [style]="dataScaleY" (scroll)="scrolling($event)" onScroll> -->
+<div class="equipdata" [style]="dataScaleY" (touchmove)="touchmoveevent($event)" (scroll)="scrolling($event)">
+    <div id="equipdatabar" #databar>
+        <table>
+            <tr class="imptr">
+                <td width="5%"></td>
+                <td width="95%">
+                    <span>滤芯状态<h6>(滤芯寿命与水温、水质、出水量等有关，仅供参考)</h6></span>
+                </td>
+            </tr>
+            <tr class="imptr">
+                <td width="5%"></td>
+                <td align="center" width="5%" class="iconOne"></td>
+                <td align="left" width="50%" class="imptrfont">
+                    PP棉滤芯
+                </td>
+                <td align="center" width="15%">
+                    <div class="iconExpire"></div>
+                </td>
+                <td align="right" width="10%">
+                    0%
+                </td>
+                <td width="5%"></td>
+                <td align="center" width="5%" class="iconRightArrow"></td>
+                <td width="5%"></td>
+            </tr>
+            <tr class="imptr"> 
+                <td width="5%"></td>
+                <td align="center" width="5%" class="iconTwo"></td>
+                <td align="left" width="50%" class="imptrfont">
+                    前置活性炭滤芯
+                </td>
+                <td align="right" width="15%"></td>
+                <td align="right" width="10%">
+                    12%
+                </td>
+                <td width="5%"></td>
+                <td align="center" width="5%" class="iconRightArrow"></td>
+                <td width="5%"></td>
+            </tr>
+            <tr class="imptr">
+                <td width="5%"></td>
+                <td align="center" width="5%" class="iconThree"></td>
+                <td align="left" width="50%" class="imptrfont">
+                    RO反渗透滤芯
+                </td>
+                <td align="right" width="15%"></td>
+                <td align="right" width="10%">
+                    66%
+                </td>
+                <td width="5%"></td>
+                <td align="center" width="5%" class="iconRightArrow"></td>
+                <td width="5%"></td>
+            </tr>
+            <tr class="imptr">
+                <td width="5%"></td>
+                <td align="center" width="5%" class="iconFour"></td>
+                <td align="left" width="50%" class="imptrfont">
+                    后置活性炭滤芯
+                </td>
+                <td align="right" width="15%"></td>
+                <td align="right" width="10%">
+                    33%
+                </td>
+                <td width="5%"></td>
+                <td align="center" width="5%" class="iconRightArrow"></td>
+                <td width="5%"></td>
+            </tr>
+            <tr id="histogramtoptr">
+                <td align="center" width="5%"></td>
+                <td align="center" width="15%">
+                    <h1>16.53</h1>
+                </td>
+                <td align="left" width="15%">
+                    自来水<br />用量(L)
+                </td>
+                <td align="center" width="15%">
+                    <h1>10.52</h1>
+                </td>
+                <td align="left" width="15%">
+                    纯净水<br />生成量(L)
+                </td>
+                <td align="center" width="30%">
+                    <div class="histogramtop">
+                        <div id="div1">
+                            月
+                        </div>
+                        <div id="div2">
+                            周
+                        </div>
+                        <div id="div3">
+                            日
+                        </div>
+                    </div>
+                </td>
+                <td align="center" width="5%"></td>
+            </tr>
+            <tr>
+                <td class="histogramtd" width="5%"></td>
+                <td class="histogramtd" width="10%" *ngFor="let htg of htgary;">
+                    <div class="histogram" style="height:{{htg*4}}%;"></div>
+                    <div class="histogramfloat"></div>  
+                </td>
+                <td class="histogramtd" width="5%"></td>
+            </tr>
+            <tr id="histogramdatetd">
+                <td align="center" width="5%"></td>
+                <td align="center" width="10%">8/10</td>
+                <td align="center" width="10%">8/11</td>
+                <td align="center" width="10%">8/12</td>
+                <td align="center" width="10%">8/13</td>
+                <td align="center" width="10%">8/14</td>
+                <td align="center" width="10%">8/15</td>
+                <td align="center" width="10%">8/16</td>
+                <td align="center" width="10%">昨天</td>
+                <td align="center" width="10%">今天</td>
+                <td align="center" width="5%"></td>
+            </tr>
+            <tr>
+                <td align="center" width="10%"></td>
+                <td class="msgtd"><span class="time">08:21:16</span><br>
+                用水时长17秒，生成纯水0.53L,消耗自来水0.86L
+                </td>
+                <td align="center" width="10%"></td>
+            </tr>
+            <tr>
+                <td align="center" width="10%"></td>
+                <td class="msgtd"><span class="time">08:22:01</span><br>
+                    用水时长7秒，生成纯水0.15L,消耗自来水0.29L
+                </td>
+                <td align="center" width="10%"></td>
+            </tr>
+            <tr>
+                <td align="center" width="10%"></td>
+                <td class="msgtd"><span class="time">08:22:27</span><br>
+                    用水时长2秒，生成纯水0.04L,消耗自来水0.08L
+                </td>
+                <td align="center" width="10%"></td>
+            </tr>
+            <tr>
+                <td align="center" width="10%"></td>
+                <td class="msgtd"><span class="time">08:22:55</span><br>
+                    用水时长19秒，生成纯水0.6L,消耗自来水0.96L
+                </td>
+                <td align="center" width="10%"></td>
+            </tr>
+            <tr>
+                <td align="center" width="10%"></td>
+                <td class="msgtd"><span class="time">08:23:16</span><br>
+                    用水时长1秒，生成纯水0.02L,消耗自来水0.04L
+                </td>
+                <td align="center" width="10%"></td>
+            </tr>
+            <tr>
+                <td align="center" width="10%"></td>
+                <td class="msgtd"><span class="time">08:23:33</span><br>
+                    用水时长1秒，生成纯水0L,消耗自来水0.01L
+                </td>
+                <td align="center" width="10%"></td>
+            </tr>
+            <tr>
+                <td align="center" width="10%"></td>
+                <td class="msgtd"><span class="time">08:24:19</span><br>
+                    用水时长3分57秒，生成纯水7.25L,消耗自来水11.15L
+                </td>
+                <td align="center" width="10%"></td>
+            </tr>
+            <tr>
+                <td align="center" width="10%"></td>
+                <td class="msgtd"><span class="time">08:29:54</span><br>
+                    用水时长12秒，生成纯水0.36L,消耗自来水0.59L
+                </td>
+                <td align="center" width="10%"></td>
+            </tr>
+            <tr>
+                <td align="center" width="10%"></td>
+                <td class="msgtd"><span class="time">08:30:10</span><br>
+                    用水时长22秒，生成纯水0.65L,消耗自来水1.04L
+                </td>
+                <td align="center" width="10%"></td>
+            </tr>
+            <tr>
+                <td align="center" width="10%"></td>
+                <td class="msgtd"><span class="time">12:06:12</span><br>
+                    用水时长7秒，生成纯水0.2L,消耗自来水0.36L
+                </td>
+                <td align="center" width="10%"></td>
+            </tr>
+            <tr>
+                <td align="center" width="10%"></td>
+                <td class="msgtd"><span class="time">12:51:38</span><br>
+                    用水时长24秒，生成纯水0.71L,消耗自来水1.13L
+                </td>
+                <td align="center" width="10%"></td>
+            </tr>
+        </table>   
+    </div>
+</div>
+
+
+<div id="notice"[style]="noticeFadeAway">
+    <span>
+        PP滤芯寿命到期
+    </span><br />
+    <button (click)="notice_Fade()" class="button">请及时更换滤芯<br>保证饮水品质
+    </button>
+</div>

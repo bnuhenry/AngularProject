@@ -1,0 +1,52 @@
+<div class = "equiptoolbar">
+    <div class="icon1" routerLink="/equipment"></div>
+    <div class="name">
+        <span><h1>内容</h1></span>
+    </div>
+    <div class="icon2"></div>
+</div>
+
+<div class = "equipmenttop">
+    <div class="filterbar">
+        <span>
+            <!-- <h4>现在的时间是：</h4> -->
+            <!-- <h3>{{scrollHeight}}</h3> -->
+            <!-- <h2></h2> -->
+            <!-- <h1>{{bottomloadmsg}}</h1> -->
+        </span>
+        <!-- <button (click) = gettoutiaonews()>获取头条数据</button> -->
+    </div>
+
+    <div id="wavebar">
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+        <div id="div5"></div>
+        <div id="div6"></div>
+        <div id="div7"></div>
+        <div id="div8"></div>
+        <div id="div9"></div>
+        <div id="div10"></div>
+        <div id="div11"></div>
+        <div id="div12"></div>
+        <div id="div13"></div>
+        <div id="div14"></div>
+        <div id="div15"></div>
+    </div>
+</div>
+<!-- <div class="luckyshow" (scroll)="scrolling($event)" onScroll> -->
+<div class="newsShow" (touchmove)="touchmoveevent($event)" (touchstart)="touchstartevent($event)" (touchend)="touchendevent($event)" (scroll)="scrolling($event)">
+    <div class="newsTop">关注每日新闻，现在的时间是{{date | date:"HH:mm:ss"}}</div>
+    <div class="newsItem" *ngFor="let x of newsShowAry">
+        <div class="newsImg"><img src={{x.image}}></div>
+        <div class="newsTitle"><a href={{x.path}}>{{x.title}}</a></div>
+        <div class="newsTime">{{x.passtime}}</div>
+    </div>
+    <div id="refreshtime">{{toploadmsg}}</div>
+    <div id="loadmoremsg" [style]="newsshowbottombarstyle">{{bottomloadmsg}}</div>
+</div>
+
+<app-navbar></app-navbar>
+
+

@@ -1,0 +1,27 @@
+select {
+    /*取消默认箭头开始*/
+    /* appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none; */
+    /*取消默认箭头结束*/
+    height:20%;
+    width:90%;
+    border-radius: 5vmin;
+    display: flex;
+    border: 0;
+    font-size:2vmin;
+    font-weight: 900;
+    padding: 0.2vmin 3vmin;
+    justify-content:center;
+    align-items: center;
+    margin:0.5vh 5vw;
+    color: rgba(0,191,255,1);
+    background-color: #fff;
+    /* background-image: url("../../assets/images/icon/arrow-down-white.png") no-repeat right 2vmin center;
+    background-size: 6vmin 3vmin; */
+   }
+
+select option{
+    color: rgba(0,191,255,1);
+    background-color: #fff;
+}

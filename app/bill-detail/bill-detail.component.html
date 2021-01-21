@@ -1,0 +1,387 @@
+<div class = "billtoolbar">
+    <!-- <div class="icon1" routerLink="/bill"> -->
+        <div class="icon1" (click)="backToLastPage()">
+        <div class="img"></div>
+    </div>
+    <div class="name">
+        <span>账单详情</span>
+    </div>
+    <div class="faq">
+    </div>
+</div>
+<div class="newdealdataformbackground" *ngIf="showNewDealDataForm || showNewDealConfirm || deleteIsDone || editIsDone">
+    <div class="deletedonebox" *ngIf="deleteIsDone || editIsDone">
+        <div class="deletedonetop" *ngIf="deleteIsDone">删除成功！</div>
+        <div class="deletedonetop" *ngIf="editIsDone">修改成功！</div>
+        <div class="deletedonebottom">
+            <div class="deletedonebutton" (click)="backToLastPage()">返回</div>
+        </div>
+    </div>
+</div>
+<div class="newdealupdateconfirm" *ngIf="!deleteIsDone&&!editIsDone" [style]="newDealConfirmStyle">
+    <div class="newdealupdateconfirmtop" *ngIf="deleteDealConfirm">确认删除交易记录</div>
+    <div class="newdealupdateconfirmtop" *ngIf="!deleteDealConfirm">确认修改交易记录</div>
+    <div class="newdealupdateconfirmmiddle">
+        <div class="newdealupdateconfirmdataline">
+            <div class="newdealupdateconfirmdatatopimg" *ngIf="deleteDealConfirm">
+                <img src="../../assets/images/icon/userinfo/{{userimg}}.png">
+            </div>
+            <div class="newdealupdateconfirmdatatopimg" *ngIf="!deleteDealConfirm">
+                <img src="../../assets/images/icon/userinfo/{{newDeal.userimg}}.png">
+            </div>
+        </div>
+        <div class="newdealupdateconfirmdata">
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易类型</div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="deleteDealConfirm">
+                    <span *ngIf="dealtype==1">红包</span>
+                    <span *ngIf="dealtype==2">转账</span>
+                    <span *ngIf="dealtype==3">群收款</span>
+                    <span *ngIf="dealtype==4">二维码收付款</span>
+                    <span *ngIf="dealtype==5">商户消费</span>
+                    <span *ngIf="dealtype==6">充值提现</span>
+                    <span *ngIf="dealtype==7">信用卡还款</span>
+                    <span *ngIf="dealtype==8">退款</span>
+                </div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="!deleteDealConfirm">
+                    <span *ngIf="newDeal.dealtype==1">红包</span>
+                    <span *ngIf="newDeal.dealtype==2">转账</span>
+                    <span *ngIf="newDeal.dealtype==3">群收款</span>
+                    <span *ngIf="newDeal.dealtype==4">二维码收付款</span>
+                    <span *ngIf="newDeal.dealtype==5">商户消费</span>
+                    <span *ngIf="newDeal.dealtype==6">充值提现</span>
+                    <span *ngIf="newDeal.dealtype==7">信用卡还款</span>
+                    <span *ngIf="newDeal.dealtype==8">退款</span>
+                </div>
+            </div>
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易方向</div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="deleteDealConfirm">
+                    <span *ngIf="cost==0">收入</span>
+                    <span *ngIf="cost==1">支出</span>
+                </div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="!deleteDealConfirm">
+                    <span *ngIf="newDeal.cost==0">收入</span>
+                    <span *ngIf="newDeal.cost==1">支出</span>
+                </div>
+            </div>
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易用户类型</div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="deleteDealConfirm">
+                    <span *ngIf="usertype==2">个人</span>
+                    <span *ngIf="usertype==3">商户</span>
+                    <span *ngIf="usertype==4">群组</span>
+                    <span *ngIf="usertype==5">银行</span>
+                </div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="!deleteDealConfirm">
+                    <span *ngIf="newDeal.usertype==2">个人</span>
+                    <span *ngIf="newDeal.usertype==3">商户</span>
+                    <span *ngIf="newDeal.usertype==4">群组</span>
+                    <span *ngIf="newDeal.usertype==5">银行</span>
+                </div>
+            </div>
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易用户名称</div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="deleteDealConfirm">{{username}}</div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="!deleteDealConfirm">{{newDeal.username}}</div>
+            </div>
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易金额</div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="deleteDealConfirm">￥{{amount | number:'0.2'}}</div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="!deleteDealConfirm">￥{{newDeal.amount | number:'0.2'}}</div>
+            </div>
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易时间</div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="deleteDealConfirm">{{oldDealDate | date:"YYYY-MM-dd HH:mm"}}</div>
+                <div class="newdealupdateconfirmdatalineright" *ngIf="!deleteDealConfirm">{{newFormSelectedDate | date:"YYYY-MM-dd HH:mm"}}</div>
+            </div>
+        </div>
+        <div class="newdealupdateconfirmbutton">
+            <div class="newdealupdateconfirmbuttondeletesubmit" *ngIf="deleteDealConfirm" (click)="deleteDealData()">确认删除</div>
+            <div class="newdealupdateconfirmbuttonsubmit" *ngIf="!deleteDealConfirm" (click)="editDealData()">确认修改</div>
+        </div>
+        <div class="newdealupdateconfirmcancel" (click)="confirmFormCancel()">取消</div>
+    </div>
+    <div class="newdealupdateconfirmrest"></div>
+</div>
+<div class="newdealdataform"  *ngIf="!deleteIsDone&&!editIsDone" [style]="newDealDataFormStyle">
+    <div class="newdealdataformtop">修改交易记录</div>
+    <div class="newdealdataforminput">
+        <form [formGroup]="newDealDataInputForm" class="newdealdataformgroup">
+            <div class="newDealDataInputFormLine">
+                <div class="newDealDataTopImg">
+                    <img src="../../assets/images/icon/userinfo/{{newDeal.userimg}}.png">
+                </div>
+            </div>
+            <div class="newDealDataInputFormLine">
+                <div class="newDealDataInputFormLeft">
+                    <label>交易类型:
+                        <select #selectdealtype id="selectdealtype" formControlName="dealtype" class="newInputFormSelector" (change)="editDealDataFormSelect(1,selectdealtype.value)">
+                            <option value=1>红包</option>
+                            <option value=2>转账</option>
+                            <option value=3>群收付款</option>
+                            <option value=4>二维码收付款</option>
+                            <option value=5>商户消费</option>
+                            <option value=6>零钱充值提现</option>
+                            <option value=7>信用卡还款</option>
+                            <option value=8>退款</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="newDealDataInputFormRight">
+                    <label>交易方向:
+                        <select #selectcost formControlName="cost" class="newInputFormSelector" (change)="editDealDataFormSelect(4,selectcost.value)">
+                            <option value=0>收入</option>
+                            <option value=1>支出</option>
+                        </select>
+                    </label>
+                </div> 
+            </div>
+            <div class="newDealDataInputFormLine">
+                <div class="newDealDataInputFormLeft">
+                    <label>用户类型:
+                        <select #selectusertype formControlName="usertype" class="newInputFormSelector" (change)="editDealDataFormSelect(2,selectusertype.value)">
+                            <option value=1>好友</option>
+                            <option value=2>个人</option>
+                            <option value=3>商户</option>
+                            <option value=4>群组</option>
+                            <option value=5>银行</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="newDealDataInputFormRight">
+                    <label>交易方名称:
+                        <select #selectusername formControlName="username" class="newInputFormSelector" (change)="editDealDataFormSelect(3,selectusername.value)">
+                            <option *ngFor="let item of newFormSelectorUserAry;index as i;" value={{i}}>{{item}}</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="newDealDataInputFormLine">
+               <label>交易金额:
+                  <input class="" #inputamount formControlName="amount" type="number" placeholder="交易金额,不超过一万" (change)="newDataFormAmountInput(inputamount.value)">
+                </label>
+            </div>
+            <div class="newDealDataInputFormLine">
+                <label>交易时间:
+                    <input class="" id="inputdate" #inputdate type="datetime-local" value={{newFormSelectedDateStr}} (change)="newDataFormDateSelect(inputdate.value)">
+                    <!-- <input class="" formControlName="time" type="month"> -->
+                </label>
+            </div>
+            <div class="newDealDataInputFormLine">
+                <div class="newDealDataInputNotice" *ngIf='!newDataIsLegal'>
+                    {{newDealDataCheckingMsg}}
+                </div>
+            </div>
+            <div class="newDealDataButtonLine">
+                <div class="newDealDataButtonLineleft">
+                    <!-- <div class="newDealDataInputSubmit" *ngIf='newDataIsLegal' (click)="getEditConfirm()"> -->
+                    <div class="newDealDataInputSubmit" (click)="getEditConfirm()">
+                        修改交易记录
+                    </div>
+                </div>
+                <div class="newDealDataButtonLineRight">
+                    <div class="newDealDataDeleteButton" (click)="getDeleteConfirm()">
+                        删除交易记录
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="newdealdataformtcancel" (click)="editDealDataForm()">取消</div>
+    <div class="newdealdataformtrest" (click)="editDealDataForm()"></div>
+</div>
+<div class="billtop">
+    <div class="userimg">
+        <img src="../../assets/images/icon/userinfo/{{userimg}}.png">
+    </div>
+    <div class="usertitle">{{username}}</div>
+    <div class="dealamount" *ngIf="dealtype!=6&&cost==1">-{{amount | number:'0.2'}}</div>
+    <div class="dealamount" *ngIf="dealtype!=6&&cost==0">{{amount | number:'0.2'}}</div>
+    <div class="dealamount" *ngIf="dealtype==6&&cost==1">-{{amount*1.001 | number:'0.2'}}</div>
+    <div class="dealamount" *ngIf="dealtype==6&&cost==0">{{amount*1.001 | number:'0.2'}}</div>
+</div>
+
+<table id="detailinfomation" *ngIf="dealtype==1">
+    <tr class="detailtr">
+        <td class="detailname">当前状态</td>
+        <td class="detaildescribe" *ngIf="cost==1">支付成功&nbsp;&nbsp;<span (click)="editDealDataForm()">修改交易记录</span></td>
+        <td class="detaildescribe" *ngIf="cost==0">已存入零钱&nbsp;&nbsp;<span (click)="editDealDataForm()">修改交易记录</span></td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">红包详情</td>
+        <td class="detaildescribe">查看</td>
+    </tr>        
+    <tr class="detailtr">
+        <td class="detailname" *ngIf="cost==1">支付时间</td>
+        <td class="detailname" *ngIf="cost==0">收款时间</td>
+        <td class="detaildescribe">{{time | date:"YYYY-MM-dd HH:mm:ss"}}</td>
+    </tr>
+    <tr class="detailtr" *ngIf="cost==1">
+        <td class="detailname">支付方式</td>
+        <td class="detaildescribe">零钱</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">交易单号</td>
+        <td class="detaildescribe">100002980220091800712336882</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">商户单号</td>
+        <td class="detaildescribe">100002980220091861999302958</td>
+    </tr>
+</table>
+<table id="detailinfomation" *ngIf="dealtype==2">
+    <tr class="detailtr">
+        <td class="detailname">当前状态</td>
+        <td class="detaildescribe" *ngIf="cost==1">朋友已收钱&nbsp;&nbsp;<span (click)="editDealDataForm()">修改交易记录</span></td>
+        <td class="detaildescribe" *ngIf="cost==0">已存入零钱&nbsp;&nbsp;<span (click)="editDealDataForm()">修改交易记录</span></td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">转账说明</td>
+        <td class="detaildescribe">微信转账</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">转账时间</td>
+        <td class="detaildescribe">{{time | date:"YYYY-MM-dd HH:mm:ss"}}</td>
+    </tr>
+    <tr class="detailtr" *ngIf="cost==1">
+        <td class="detailname">支付方式</td>
+        <td class="detaildescribe">零钱</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">转账单号</td>
+        <td class="detaildescribe">100004990220091861999302958</td>
+    </tr>
+</table>
+<table id="detailinfomation" *ngIf="dealtype==3||dealtype==4">
+    <tr class="detailtr">
+        <td class="detailname">当前状态</td>
+        <td class="detaildescribe" *ngIf="cost==1">支付成功&nbsp;&nbsp;<span (click)="editDealDataForm()">修改交易记录</span></td>
+        <td class="detaildescribe" *ngIf="cost==0">已存入零钱&nbsp;&nbsp;<span (click)="editDealDataForm()">修改交易记录</span></td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">收款方备注</td>
+        <td class="detaildescribe" *ngIf="dealtype==3">群收款</td>
+        <td class="detaildescribe" *ngIf="dealtype==4">二维码收款</td>
+    </tr>
+    <tr class="detailtr" *ngIf="cost==1">
+        <td class="detailname">支付方式</td>
+        <td class="detaildescribe">零钱</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname" *ngIf="cost==1">转账时间</td>
+        <td class="detailname" *ngIf="cost==0">收款时间</td>
+        <td class="detaildescribe">{{time | date:"YYYY-MM-dd HH:mm:ss"}}</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">转账单号</td>
+        <td class="detaildescribe">100004990220091861999302958</td>
+    </tr>
+</table>
+<table id="detailinfomation" *ngIf="dealtype==5">
+    <tr class="detailtr">
+        <td class="detailname">当前状态</td>
+        <td class="detaildescribe" >支付成功&nbsp;&nbsp;<span (click)="editDealDataForm()">修改交易记录</span></td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">商品</td>
+        <td class="detaildescribe" >...</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">商户全称</td>
+        <td class="detaildescribe">{{username}}</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">支付时间</td>
+        <td class="detaildescribe">{{time | date:"YYYY-MM-dd HH:mm:ss"}}</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">支付方式</td>
+        <td class="detaildescribe">零钱</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">交易单号</td>
+        <td class="detaildescribe">100002980220091800712336882</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">商户单号</td>
+        <td class="detaildescribe">100002980220091861999302958</td>
+    </tr>
+</table>
+<table id="detailinfomation" *ngIf="dealtype==6">
+    <tr class="detailtr">
+        <td class="detailname">当前状态</td>
+        <td class="detaildescribe" >充值完成&nbsp;&nbsp;<span (click)="editDealDataForm()">修改交易记录</span></td>
+    </tr>
+    <tr class="detailtr" *ngIf="cost==1">
+        <td class="detailname">提现金额</td>
+        <td class="detaildescribe" >￥{{amount | number:'0.2'}}</td>
+    </tr>
+    <tr class="detailtr" *ngIf="cost==1">
+        <td class="detailname">服务费</td>
+        <td class="detaildescribe" >￥{{amount/1000 | number:'0.2'}}</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname" *ngIf="cost==0">充值时间</td>
+        <td class="detailname" *ngIf="cost==1">申请时间</td>
+        <td class="detaildescribe">{{time | date:"YYYY-MM-dd HH:mm:ss"}}</td>
+    </tr>
+    <tr class="detailtr" *ngIf="cost==1">
+        <td class="detailname">到账时间</td>
+        <td class="detaildescribe">{{time | date:"YYYY-MM-dd HH:mm:ss"}}</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname" *ngIf="cost==0">支付方式</td>
+        <td class="detailname" *ngIf="cost==1">提现银行</td>
+        <td class="detaildescribe">{{username}}</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname" *ngIf="cost==0">交易单号</td>
+        <td class="detailname" *ngIf="cost==1">提现单号</td>
+        <td class="detaildescribe">100002980220091800712336882</td>
+    </tr>
+</table>
+<table id="detailinfomation" *ngIf="dealtype==7">
+    <tr class="detailtr">
+        <td class="detailname">当前状态</td>
+        <td class="detaildescribe" >还款成功&nbsp;&nbsp;<span (click)="editDealDataForm()">修改交易记录</span></td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">还款时间</td>
+        <td class="detaildescribe" >{{time | date:"YYYY-MM-dd HH:mm:ss"}}</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">还款银行</td>
+        <td class="detaildescribe" >{{username}}</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">信用卡号</td>
+        <td class="detaildescribe">1000029802200918</td>
+    </tr>
+</table>
+<table id="detailinfomation" *ngIf="dealtype==8">
+    <tr class="detailtr">
+        <td class="detailname">当前状态</td>
+        <td class="detaildescribe" >已存入零钱&nbsp;&nbsp;<span (click)="editDealDataForm()">修改交易记录</span></td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">退款说明</td>
+        <td class="detaildescribe" >...</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">退款时间</td>
+        <td class="detaildescribe" >{{time | date:"YYYY-MM-dd HH:mm:ss"}}</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">退款方</td>
+        <td class="detaildescribe" >{{username}}</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">交易单号</td>
+        <td class="detaildescribe">100002980220091800712336882</td>
+    </tr>
+    <tr class="detailtr">
+        <td class="detailname">商户单号</td>
+        <td class="detaildescribe">100002980220091861999302958</td>
+    </tr>
+</table>

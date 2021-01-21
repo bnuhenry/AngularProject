@@ -1,0 +1,697 @@
+.billtoolbar {
+    position: fixed;
+    width: 100%;
+    height: 5%;
+    top:0;
+    left:0;
+    right:0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: black;
+    font-weight: 600;
+    background-color: #eeeeee;
+    z-index:30;
+  }
+  
+  .billtoolbar .icon1{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .billtoolbar .icon1 .img{
+    width: 3vh;
+    height: 3vh;
+    margin-left:3vw;
+    background: url("../../assets/images/icon/close.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  
+  .billtoolbar .name{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex:1 1 auto;
+    font-size:2.5vh;
+    font-weight: 600;
+    flex-direction:column;
+    text-align:center;
+    justify-content: center;
+  }
+  
+  .billtoolbar .faq{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    margin-right:1vw;
+    font-size:2.5vh;
+    font-weight: 500;
+    flex-direction:column;
+    text-align:center;
+    justify-content: center;
+  }
+
+    .newdealupdateconfirm{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        top:0;
+        transition: 0.5s ease-out;
+        z-index: 35;
+    }
+
+        .newdealupdateconfirmtop{
+            width: 100%;
+            height: 5%;
+            display: flex;
+            font-size: 2vmax;
+            font-weight: 600;
+            background-color: #ececec;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .newdealupdateconfirmmiddle{
+            width: 100%;
+            height: 55%;
+            display: flex;
+            font-size: 2vmax;
+            font-weight: 500;
+            background-color: #ffffff;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .newdealupdateconfirmdatatopimg{
+                height: 6vmax;
+                width: 6vmax;
+                border-radius: 50%;
+                margin-top:5%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            .newdealupdateconfirmdatatopimg img{
+                height: 100%;
+            }
+
+            .newdealupdateconfirmdata{
+                width: 100%;
+                height: 60%;
+                display: flex;
+                font-size: 2vmax;
+                flex-direction: column;
+                font-weight: 500;
+                justify-content: center;
+                align-items: center;
+            }
+
+                .newdealupdateconfirmdataline{
+                    width: 90%;
+                    height: 10%;
+                    margin:0 5%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                    .newdealupdateconfirmdatalineleft{
+                        width: 40%;
+                        height: 100%;
+                        display: flex;
+                        color: #9e9e9e;
+                        padding:0 3%;
+                        justify-content: flex-end;
+                        align-items: center;
+                    }
+
+                    .newdealupdateconfirmdatalineright{
+                        width: 60%;
+                        height: 100%;
+                        display: flex;
+                        padding:0 3%;
+                        justify-content: flex-start;
+                        align-items: center;
+                    }
+
+            .newdealupdateconfirmbutton{
+                width: 100%;
+                height: 15%;
+                display: flex;
+                border-bottom: 3px solid #dddddd;
+                justify-content: center;
+                align-items: center;
+            }
+
+                .newdealupdateconfirmbuttonsubmit{
+                    width: 30%;
+                    height: 60%;
+                    display: flex;
+                    background-color: #9e9e9e;
+                    font-weight: 600;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+            .newdealupdateconfirmcancel{
+                width: 100%;
+                height: 15%;
+                display: flex;
+                font-weight: 600;
+                justify-content: center;
+                align-items: center;
+            }
+
+        .newdealupdateconfirmrest{
+            width: 100%;
+            height: 40%;
+        }
+
+  .newdealdataform{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top:0;
+    transition: 0.3s ease-out;
+    z-index: 30;
+    }
+
+        .newdealdataformtop{
+            width: 100%;
+            height: 5%;
+            display: flex;
+            font-size: 2vmax;
+            font-weight: 600;
+            justify-content: center;
+            align-items: center;
+            background-color: #ececec;
+        }
+
+        .newdealdataforminput{
+            width: 100%;
+            height: 55%;
+            display: flex;
+            background-color: #ffffff;
+            border-top: 1px solid #dddddd;
+            border-bottom: 3px solid #dddddd;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .newdealdataformgroup{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .newDealDataInputFormLine{
+            width: 100%;
+            height: 15%;
+            left: 0;
+            display: flex;
+            font-size: 2vmax;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .newDealDataInputFormLine div{
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #ffffff;
+            }
+
+            .newDealDataTopImg{
+                height: 8vmax!important;
+                width: 8vmax;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            .newDealDataTopImg img{
+                height: 100%;
+            }
+
+            .newInputFormSelector{
+                height:100%;
+                width:16vmax;
+                border-radius: 1vmax;
+                display: flex;
+                background-color: #ffffff;
+                font-size: 2vmax;
+                align-items: center;
+            }
+
+            .newDealDataInputFormLeft{
+                width: 50%;
+                left: 0;
+            }
+
+            .newDealDataInputFormRight{
+                width: 50%;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .newDealDataInputSubmit{
+                height: 50%!important;
+                width: 35%;
+                border-radius: 1vmax;
+                display: flex;
+                background-color:#eeeeee!important;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .newDealDataInputNotice{
+                /* height: 50%!important; */
+                width: 100%;
+                display: flex;
+                color: red;
+                /* background-color:rgba(6,24,31,0.2); */
+                justify-content: center;
+                align-items: center;
+            }
+
+            .newdealdataformtcancel{
+                width: 100%;
+                height: 10%;
+                display: flex;
+                font-size: 2vmax;
+                font-weight: 600;
+                justify-content: center;
+                align-items: center;
+                background-color: #ffffff;
+            }
+
+            .newdealdataformtrest{
+                width: 100%;
+                height: 30%;
+                display: flex;
+            }
+
+    .newdealdataformbackground{
+        width: 100%;
+        height: 95%;
+        position: fixed;
+        top:5%;
+        background: rgba(6,24,31,0.2);
+        z-index: 20;
+    }
+
+  .dealtype{
+    width: 100%;
+    height: 10%;
+    top:5%;
+    left:0;
+    position: fixed;
+    background-color: #ececec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display:none; */
+    z-index: 15;
+}
+
+.dealtypeclick{
+    width: 35%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    font-size: 2vmax;
+    justify-content: center;
+    background: url("../../assets/images/icon/arrow-down-filling.png") no-repeat;
+    background-size: 2vmax 2vmax;
+    background-position: right 50%;
+}
+
+.screenbackground{
+    width: 100%;
+    height: 95%;
+    position: fixed;
+    bottom:0;
+    background: rgba(6,24,31,0.2);
+    z-index: 20;
+}
+
+.screen{
+    width: 100%;
+    height: 95%;
+    position: fixed;
+    bottom:0;
+    transition: 0.3s ease-out;
+    z-index: 30;
+}
+
+    .screentop{
+        width: 100%;
+        height: 40%;
+        top:0;
+        /* background: rgba(6,24,31,0.2); */
+    }
+
+    .screenbar{
+        width: 100%;
+        height: 60%;
+        background-color: #eeeeee;
+    }
+
+        .screenbartop{
+            width: 100%;
+            height: 15%;
+            display: flex;
+            font-size: 2vmax;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .screenbarselect{
+            width: 100%;
+            height: 68%;
+            display: flex;
+            flex-wrap: wrap;
+            border-top: 1px solid #dddddd;
+            border-bottom: 5px solid #dddddd;
+            padding:2vh auto;
+            justify-content: center;
+            align-content: center;
+        }
+
+            .screenbaroption{
+                width: 28%;
+                height: 28%;
+                margin:1vh;
+                display: flex;
+                border-radius:1vh;
+                background-color:#ffffff;
+                font-size: 2vmax;
+                color: #707070;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .screenbaroption.tabon{
+                background-color: rgb(0, 165, 0);
+                color: #ffffff;
+            }
+
+        .screenbarbottom{
+            width: 100%;
+            height: 15%;
+            display: flex;
+            background-color: #ffffff;
+            font-size: 2vmax;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 2vh;
+        }
+
+.billshow{
+    width: 100%;
+    height: 95%;
+    top:15%;
+    bottom:0;
+    left:0;
+    right:0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x:hidden;
+}
+
+  .billtable{
+    position: relative;
+    width: 100%;
+    border-collapse: collapse;
+    }
+
+  .dealtop{
+    width: 100%;
+    height: 10vh;
+    justify-content: left;
+    padding-left: 3vw;
+    display: flex;
+    background-color: #f1f1f1;
+    position: fixed;
+    z-index: 10;
+    }
+
+    .dealtopleft{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        padding-left:3vw;
+    }
+
+        .dealtopdate{
+            width: 50%;
+            height: 50%;
+            display: flex;
+            font-size: 2vmax;
+            /* align-items: center; */
+            align-items: flex-end;
+            /* padding-bottom: 0.5vh; */
+            /* background: url("../../assets/images/icon/arrow-down-black.png") no-repeat;
+            background-size: 2vmax 2vmax;
+            background-position: 12vmax 80%; */
+        }
+
+        .selectdate{
+            height:100%;
+            outline:none;
+            width:16vmax;
+            margin:0;
+            left: 0;
+            display: flex;
+            border: 0;
+            background-color: #f1f1f1;
+            font-size: 2vmax;
+            /* justify-content:center; */
+            align-items: center;
+        }
+
+        .dealtopnumber{
+            width: 100%;
+            height: 50%;
+            color:#999999;
+            display: flex;
+            font-size: 1.5vmax;
+            /* padding-top: 0.5vh; */
+        }
+
+  .dealtopright{
+    width: 30%;
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-end;
+    align-items: center;
+    }
+
+    .totalbutton{
+        width: 60%;
+        height: 50%;
+        display: flex;
+        flex-direction:column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .totalbuttontop{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        padding-right:2vw;
+        /* padding-top: 0.5vh; */
+        font-size: 1.5vmax;
+        justify-content: center;
+        align-items: center;
+        color:#bbbbbb;
+        border-left: 1px solid #bbbbbb;
+        background: url("../../assets/images/icon/arrow-right-bbbbbb.png") no-repeat;
+        background-size: 2vmax 2vmax;
+        background-position: 80% center;
+    }
+
+.dealdate{
+    width: 100%;
+    height: 10vh;
+    justify-content: left;
+    padding-left: 3vw;
+    display: flex;
+    background-color: #eeeeee;
+  }
+
+.dealdetail{
+    width: 100%;
+    height: 10vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+}
+
+.dealusericon{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .dealuserimgbox{
+        height: 6vh;
+        width: 6vh;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .dealuserimgbox img{
+        height: 100%;
+    }
+
+.dealobject{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vmin;
+}
+
+.dealname{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size:2vmax;
+    align-items: flex-end;
+    justify-content: left;
+}
+
+.dealtime{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    font-size:1vmax;
+    align-items: flex-start;
+    justify-content: left;
+    color:#bbbbbb;
+}
+
+.dealright{
+    width: 20%;
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+    padding-right: 1vmin;
+}
+
+.dealamount{
+    width: 100%;
+    height: 50%;
+    display:flex;
+    font-size:2vmax;
+    font-weight: bold;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.dealamountreward{
+    width: 100%;
+    height: 50%;
+    display:flex;
+    font-size:2vmax;
+    color:lightgreen;
+    font-weight: bold;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+#toploadmoremsg{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    display:flex;
+    height:5%;
+    font-size: 3vmin;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex:none;
+    color:#ffffff;
+}
+
+#bottomloadmoremsg{
+    position: fixed;
+    bottom:0;
+    left:0;
+    width: 100%;
+    display:flex;
+    height:5%;
+    font-size: 3vmin;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex:none;
+    color:yellow;
+    background: rgba(6, 24, 31, 0.2);
+}
+
+#loadingmsg{
+    position: fixed;
+    top:35%;
+    left: 50%;
+    width: 15%;
+    height: 5%;
+    display:flex;
+    font-size: 2vmin;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+    color:#ffffff;
+    background: rgba(6, 24, 31, 0.2);
+    z-index: 35;
+  }
+
+#nodatashow{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    width: 30%;
+    height: 5%;
+    display:flex;
+    font-size: 2vmax;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    transform: translateX(-50%);
+    color:#bbbbbb;
+  }

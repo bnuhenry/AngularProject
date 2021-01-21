@@ -1,0 +1,270 @@
+<div class = "billtoolbar">
+    <div class="icon1" routerLink="/equipment">
+        <!-- <div class="icon1"  (click)="backToLastPage()">  -->
+        <div class="img"></div>
+    </div>
+    <div class="name">
+        <span>账单</span>
+        <!-- <button (click)="makeScreenCondition()">加载数据</button> -->
+        <!-- <button (click)="uploadalldata()">上传数据</button> -->
+    </div>
+    <div class="faq" (click)="getNewDealDataForm()">
+        <span>新增交易</span>
+    </div>
+</div>
+<div class="dealtype" *ngIf="dealtypeshow">
+    <div class="dealtypeclick" (click)="showscreen()">
+        {{dealTypeSelectStr}}
+    </div>
+</div>
+<div class="newdealdataformbackground" *ngIf="showNewDealDataForm || showNewDealConfirm"></div>
+<div class="newdealupdateconfirm" [style]="newDealConfirmStyle">
+    <div class="newdealupdateconfirmtop">确认创建交易记录</div>
+    <div class="newdealupdateconfirmmiddle">
+        <div class="newdealupdateconfirmdataline">
+            <div class="newdealupdateconfirmdatatopimg">
+                <img src="../../assets/images/icon/userinfo/{{newDeal.userimg}}.png">
+            </div>
+        </div>
+        <div class="newdealupdateconfirmdata">
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易类型</div>
+                <div class="newdealupdateconfirmdatalineright">
+                    <span *ngIf="newDeal.dealtype==1">红包</span>
+                    <span *ngIf="newDeal.dealtype==2">转账</span>
+                    <span *ngIf="newDeal.dealtype==3">群收款</span>
+                    <span *ngIf="newDeal.dealtype==4">二维码收付款</span>
+                    <span *ngIf="newDeal.dealtype==5">商户消费</span>
+                    <span *ngIf="newDeal.dealtype==6">充值提现</span>
+                    <span *ngIf="newDeal.dealtype==7">信用卡还款</span>
+                    <span *ngIf="newDeal.dealtype==8">退款</span>
+                </div>
+            </div>
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易方向</div>
+                <div class="newdealupdateconfirmdatalineright">
+                    <span *ngIf="newDeal.cost==0">收入</span>
+                    <span *ngIf="newDeal.cost==1">支出</span>
+                </div>
+            </div>
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易用户类型</div>
+                <div class="newdealupdateconfirmdatalineright">
+                    <span *ngIf="newDeal.usertype==2">个人</span>
+                    <span *ngIf="newDeal.usertype==3">商户</span>
+                    <span *ngIf="newDeal.usertype==4">群组</span>
+                    <span *ngIf="newDeal.usertype==5">银行</span>
+                </div>
+            </div>
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易用户名称</div>
+                <div class="newdealupdateconfirmdatalineright">{{newDeal.username}}</div>
+            </div>
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易金额</div>
+                <div class="newdealupdateconfirmdatalineright">￥{{newDeal.amount | number:'0.2'}}</div>
+            </div>
+            <div class="newdealupdateconfirmdataline">
+                <div class="newdealupdateconfirmdatalineleft">交易时间</div>
+                <div class="newdealupdateconfirmdatalineright">{{newFormSelectedDate | date:"YYYY-MM-dd HH:mm"}}</div>
+            </div>
+        </div>
+        <div class="newdealupdateconfirmbutton">
+            <div class="newdealupdateconfirmbuttonsubmit" (click)="upDateNewDealData()">确认上传</div>
+        </div>
+        <div class="newdealupdateconfirmcancel" (click)="getNewDealUpDateConfirm()">取消</div>
+    </div>
+    <div class="newdealupdateconfirmrest"></div>
+</div>
+<div class="newdealdataform" [style]="newDealDataFormStyle">
+    <div class="newdealdataformtop">新增交易记录</div>
+    <div class="newdealdataforminput">
+        <form [formGroup]="newDealDataInputForm" class="newdealdataformgroup">
+            <div class="newDealDataInputFormLine">
+                <div class="newDealDataTopImg">
+                    <img src="../../assets/images/icon/userinfo/{{newDeal.userimg}}.png">
+                </div>
+            </div>
+            <div class="newDealDataInputFormLine">
+                <div class="newDealDataInputFormLeft">
+                    <label>交易类型:
+                        <select #selectdealtype formControlName="dealtype" class="newInputFormSelector" (change)="getNewDealDataFormSelect(1,selectdealtype.value)">
+                            <option value=1>红包</option>
+                            <option value=2>转账</option>
+                            <option value=3>群收付款</option>
+                            <option value=4>二维码收付款</option>
+                            <option value=5>商户消费</option>
+                            <option value=6>零钱充值提现</option>
+                            <option value=7>信用卡还款</option>
+                            <option value=8>退款</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="newDealDataInputFormRight">
+                    <label>交易方向:
+                        <select #selectcost formControlName="cost" class="newInputFormSelector" (change)="getNewDealDataFormSelect(4,selectcost.value)">
+                            <option value=0>收入</option>
+                            <option value=1>支出</option>
+                        </select>
+                    </label>
+                </div> 
+            </div>
+            <div class="newDealDataInputFormLine">
+                <div class="newDealDataInputFormLeft">
+                    <label>用户类型:
+                        <select #selectusertype formControlName="usertype" class="newInputFormSelector" (change)="getNewDealDataFormSelect(2,selectusertype.value)">
+                            <option value=2>个人</option>
+                            <option value=3>商户</option>
+                            <option value=4>群组</option>
+                            <option value=5>银行</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="newDealDataInputFormRight">
+                    <label>交易方名称:
+                        <select #selectusername formControlName="username" class="newInputFormSelector" (change)="getNewDealDataFormSelect(3,selectusername.value)">
+                            <option *ngFor="let item of newFormSelectorUserAry;index as i;" value={{i}}>{{item}}</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="newDealDataInputFormLine">
+               <label>交易金额:
+                  <input class="" #inputamount formControlName="amount" type="number" placeholder="交易金额,不超过一万" (change)="newDataFormAmountInput(inputamount.value)">
+                </label>
+            </div>
+            <div class="newDealDataInputFormLine">
+                <label>交易时间:
+                    <input class="" #inputdate type="datetime-local" (change)="newDataFormDateSelect(inputdate.value)">
+                    <!-- <input class="" formControlName="time" type="month"> -->
+                </label>
+            </div>
+            <div class="newDealDataInputFormLine">
+                <div class="newDealDataInputSubmit" *ngIf='newDataIsLegal'  (click)="getNewDealUpDateConfirm()">
+                    创建交易记录
+                </div>
+                <div class="newDealDataInputNotice" *ngIf='!newDataIsLegal'>
+                    {{newDealDataCheckingMsg}}
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="newdealdataformtcancel" (click)="getNewDealDataForm()">取消</div>
+    <div class="newdealdataformtrest" (click)="getNewDealDataForm()"></div>
+</div>
+
+<div class="screenbackground" *ngIf="showscreenbar"></div>
+<div class="screen" [style]="screenStyle">
+    <div class="screentop" (click)="showscreen()"></div>
+    <div class="screenbar">
+        <div class="screenbartop"><h4>选择交易类型</h4></div>
+        <div class="screenbarselect">
+            <div class="screenbaroption" [class.tabon]="dealTypeIndex==0" (click)="dealTypeSelect(0)">全部</div>
+            <div class="screenbaroption" [class.tabon]="dealTypeIndex==1" (click)="dealTypeSelect(1)">红包</div>
+            <div class="screenbaroption" [class.tabon]="dealTypeIndex==2" (click)="dealTypeSelect(2)">转账</div>
+            <div class="screenbaroption" [class.tabon]="dealTypeIndex==3" (click)="dealTypeSelect(3)">群收款</div>
+            <div class="screenbaroption" [class.tabon]="dealTypeIndex==4" (click)="dealTypeSelect(4)">二维码收付款</div>
+            <div class="screenbaroption" [class.tabon]="dealTypeIndex==5" (click)="dealTypeSelect(5)">商户消费</div>
+            <div class="screenbaroption" [class.tabon]="dealTypeIndex==6" (click)="dealTypeSelect(6)">充值提现</div>
+            <div class="screenbaroption" [class.tabon]="dealTypeIndex==7" (click)="dealTypeSelect(7)">信用卡还款</div>
+            <div class="screenbaroption" [class.tabon]="dealTypeIndex==8" (click)="dealTypeSelect(8)">有退款</div>
+        </div>
+        <div class="screenbarbottom" (click)="showscreen()"><h4>取消</h4></div>
+    </div>
+</div>
+
+<div class="billshow" (touchmove)="touchmoveevent($event)" (touchstart)="touchstartevent($event)" (touchend)="touchendevent($event)" (scroll)="scrolling($event)" appBillDateToTop="dealdate" (showtopdate)="getthatdate($event)" [style]="styletop">
+    <div class="dealtop" [style]="styletop">
+        <div class="dealtopleft">
+            <div class="dealtopdate">
+                <select #select class="selectdate" *ngIf="yearNotSelectedYet" (change)="getMonthAry(select.value)">
+                    <option style="display: none">{{showTopYear}}年{{showTopMonth+1}}月</option>
+                    <option *ngFor = "let item of selectDateAry;" value={{item.year}}> 
+                        {{item.year}}年
+                    </option>
+                </select>
+                <select #select1 class="selectdate" *ngIf="!yearNotSelectedYet" (change)="selectedDate(select1.value)">
+                    <option style="display: none">'请选择月份'</option>
+                    <option *ngFor = "let item of selectedMonthAry;" value={{item}}> 
+                        {{item}}月
+                    </option>
+                </select>
+            </div>
+            <div class="dealtopnumber">
+                {{showtoptotal}}
+            </div>
+        </div>
+        <div class="dealtopright" *ngIf="dealTypeIndex==0">
+            <div class="totalbutton" (click)="goToTotalPage(showTopYear,showTopMonth)">
+                <div class="totalbuttontop">
+                    统计
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="billtable" *ngFor="let item of showDataAry;index as i;">
+        <tr class="dealdate">
+            <td class="dealtopleft">
+                <tr class="dealtopdate">
+                    <select #select class="selectdate" *ngIf="yearNotSelectedYet" (change)="getMonthAry(select.value)">
+                        <option style="display: none">{{item.year}}年{{item.month+1}}月</option>
+                        <option *ngFor = "let item of selectDateAry;" value={{item.year}}> 
+                            {{item.year}}年
+                        </option>
+                    </select>
+                    <select #select class="selectdate" *ngIf="!yearNotSelectedYet" (change)="selectedDate(select.value)">
+                        <option style="display: none">'请选择月份'</option>
+                        <option *ngFor = "let item of selectedMonthAry;" value={{item}}> 
+                            {{item}}月
+                        </option>
+                    </select>
+                </tr>
+                <tr class="dealtopnumber">支出￥{{item.spend | number:'0.2'}} 收入￥{{item.income | number:'0.2'}}</tr></td>
+            <td class="dealtopright" *ngIf="dealTypeIndex==0">
+                <tr class="totalbutton" (click)="goToTotalPage(item.year,item.month)">
+                    <div class="totalbuttontop">
+                        统计
+                    </div>
+                </tr>
+            </td>
+        </tr>
+        <tr class="dealdetail" *ngFor="let dealdata of item.dealdataary;index as j;" (click)="goToBillDetail(i,j)">
+            <td class="dealusericon">
+                <div class="dealuserimgbox" *ngIf="dealdata.dealtype!=1">
+                    <img src="../../assets/images/icon/userinfo/{{dealdata.userimg}}.png">
+                </div>
+                <div class="dealuserimgbox" *ngIf="dealdata.dealtype==1">
+                    <img src="../../assets/images/icon/userinfo/hongbao.png">
+                </div>
+            </td>
+            <td class="dealobject">
+                <tr class="dealname" *ngIf="dealdata.dealtype==1&&dealdata.cost==1">微信红包-发给{{dealdata.username}}</tr>
+                <tr class="dealname" *ngIf="dealdata.dealtype==1&&dealdata.cost==0">微信红包-来自{{dealdata.username}}</tr>
+                <tr class="dealname" *ngIf="dealdata.dealtype==2&&dealdata.cost==1">转账-发给{{dealdata.username}}</tr>
+                <tr class="dealname" *ngIf="dealdata.dealtype==2&&dealdata.cost==0">转账-来自{{dealdata.username}}</tr>
+                <tr class="dealname" *ngIf="dealdata.dealtype==3">群付款-{{dealdata.username}}</tr>
+                <tr class="dealname" *ngIf="dealdata.dealtype==4&&dealdata.cost==1">扫二维码付款-给{{dealdata.username}}</tr>
+                <tr class="dealname" *ngIf="dealdata.dealtype==4&&dealdata.cost==0">扫二维码付款-来自{{dealdata.username}}</tr>
+                <tr class="dealname" *ngIf="dealdata.dealtype==5">{{dealdata.username}}</tr>
+                <tr class="dealname" *ngIf="dealdata.dealtype==6&&dealdata.cost==1">零钱提现-到{{dealdata.username}}</tr>
+                <tr class="dealname" *ngIf="dealdata.dealtype==6&&dealdata.cost==0">零钱充值-来自{{dealdata.username}}</tr>
+                <tr class="dealname" *ngIf="dealdata.dealtype==7">信用卡还款-到{{dealdata.username}}</tr>
+                <tr class="dealname" *ngIf="dealdata.dealtype==8">有退款-来自{{dealdata.username}}</tr>
+                <tr class="dealtime">{{showDate.setTime(dealdata.time)|date:'MM月dd日 HH:mm'}}</tr>
+            </td>
+            <td class="dealright">
+                <tr class="dealamount" *ngIf = 'dealdata.cost==1'>
+                    -{{dealdata.amount | number:'0.2'}}
+                </tr>
+                <tr class="dealamountreward" *ngIf = 'dealdata.cost==0'>
+                    +{{dealdata.amount | number:'0.2'}}
+                </tr>
+            </td>
+        </tr>
+    </table>
+    <div id="toploadmoremsg">{{bottomloadmsg}}</div>
+    <div id="bottomloadmoremsg" *ngIf="showBottomBar">{{bottomloadmsg}}</div>
+</div>
+
+<div id="loadingmsg" *ngIf="loadingMsgShow">{{loadingMsg}}</div>
+<div id="nodatashow" *ngIf="noDataShow">暂无记录</div>

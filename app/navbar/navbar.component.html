@@ -1,0 +1,14 @@
+<div class="tab-nav">
+    <ul>
+         <li class="tab-equipment" [class.tab-on]="tab_on === 'serveinfo'"
+         routerLink="/equipment" routerLinkActive="tab-on"><span></span><b>米家</b></li>
+         <li class="tab-product" [class.tab-on]="tab_on === 'products'"
+         routerLink="/products" routerLinkActive="tab-on"><span></span><b>商品</b></li>
+         <li class="tab-list" [class.tab-on]="tab_on === 'contents'"
+         routerLink="/contents" routerLinkActive="tab-on"><span></span><b>内容</b></li>
+         <li class="tab-ai" [class.tab-on]="tab_on === 'ai'"
+         routerLink="/ai" routerLinkActive="tab-on"><span></span><b>智能</b></li>
+         <li class="tab-bill" [class.tab-on]="tab_on === 'bill'"
+         routerLink="/bill" routerLinkActive="tab-on"><span></span><b>账单</b></li>
+    </ul>
+</div>
