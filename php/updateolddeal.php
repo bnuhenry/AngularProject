@@ -16,9 +16,9 @@ $realmip = "127.0.0.1";
 $realmport = "8085";
 $ip = "127.0.0.1:3306";
 $user = "root";
-$pass = "tbchenry";
-$db = "wechat";
-$key = "omgthatsreally@coolyesitis";
+$pass = "";
+$db = "";
+$key = "";
 $time = "";
 global $con;
 

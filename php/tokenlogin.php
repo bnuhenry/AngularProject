@@ -8,7 +8,7 @@ header("Content-Type: application/json; charset=UTF-8");
 $postData = file_get_contents('php://input', true);
 $obj=json_decode($postData);
 
-$tokenkey = "nomoreverifyplease";
+$tokenkey = "";
 $now = time();
 $token = "";
 

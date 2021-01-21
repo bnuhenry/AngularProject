@@ -8,12 +8,12 @@ header("Content-Type: application/json; charset=UTF-8");
 $postData = file_get_contents('php://input', true);
 $obj=json_decode($postData);
 
-$db = "wechat";
+$db = "";
 $ip = "127.0.0.1:3306";
 $user = "root";
-$pass = "tbchenry";
-$shakey = "omgthatsreally@coolyesitis";
-$tokenkey = "nomoreverifyplease";
+$pass = "";
+$shakey = "";
+$tokenkey = "";
 $username = "";
 $password = "";
 
